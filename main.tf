@@ -53,7 +53,7 @@ resource "azurerm_virtual_machine_scale_set" "vm-linux" {
     computer_name_prefix = "${var.computer_name_prefix}"
     admin_username       = "${var.admin_username}"
     admin_password       = "${var.admin_password}"
-    custom_data          = "${base64encode("${var.cmd_extension}")}"
+    custom_data          = "${data.template_cloudinit_config.config.rendered}"
   }
 
   os_profile_linux_config {
@@ -76,3 +76,4 @@ resource "azurerm_virtual_machine_scale_set" "vm-linux" {
     }
   }
 }
+

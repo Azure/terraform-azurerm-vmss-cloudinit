@@ -91,11 +91,6 @@ variable "load_balancer_backend_address_pool_ids" {
   description = "The id of the backend address pools of the loadbalancer to which the VM scale set is attached"
 }
 
-variable "cmd_extension" {
-  description = "Command to be excuted by the custom script extension"
-  default     = "echo hello"
-}
-
 variable "tags" {
   type        = "map"
   description = "A map of the tags to use on the resources that are deployed with this module."
