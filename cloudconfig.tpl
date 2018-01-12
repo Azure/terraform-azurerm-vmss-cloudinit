@@ -1,3 +1,4 @@
+#cloud-config
 packages:
  - httpd
  - samba-client

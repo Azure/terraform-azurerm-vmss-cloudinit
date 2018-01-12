@@ -31,9 +31,9 @@ data "template_cloudinit_config" "config" {
     content      = "${data.template_file.cloudconfig.rendered}"
   }
 
-  part {
-    content_type = "text/x-shellscript"
-    content      = "echo hello"
-  }
+  # part {
+  #   content_type = "text/x-shellscript"
+  #   content      = "echo hello"
+  # }
 
 }
