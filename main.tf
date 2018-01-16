@@ -2,6 +2,10 @@ provider "azurerm" {
   version = "~> 1.0"
 }
 
+provider "template" {
+  version = "~> 1.0"
+}
+
 module "os" {
   source       = "./os"
   vm_os_simple = "${var.vm_os_simple}"
@@ -11,6 +15,25 @@ resource "azurerm_resource_group" "vmss" {
   name     = "${var.resource_group_name}"
   location = "${var.location}"
   tags     = "${var.tags}"
+}
+
+data "template_file" "cloudconfig" {
+  template = "${file("${path.cwd}/cloudconfig.tpl")}"
+
+  vars {
+    tempfile = "mytestfile.txt"
+  }
+}
+
+data "template_cloudinit_config" "config" {
+  gzip          = true
+  base64_encode = true
+
+  # Cloud config file
+  part {
+    content_type = "text/cloud-config"
+    content      = "${data.template_file.cloudconfig.rendered}"
+  }
 }
 
 resource "azurerm_virtual_machine_scale_set" "vm-linux" {
@@ -76,4 +99,3 @@ resource "azurerm_virtual_machine_scale_set" "vm-linux" {
     }
   }
 }
-
