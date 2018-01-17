@@ -57,14 +57,14 @@ resource "azurerm_virtual_machine_scale_set" "vm-linux" {
     name              = ""
     caching           = "ReadWrite"
     create_option     = "FromImage"
-    managed_disk_type = "${ var.managed_disk_type }"
+    managed_disk_type = "${var.managed_disk_type}"
   }
 
   storage_profile_data_disk {
     lun           = 0
     caching       = "ReadWrite"
     create_option = "Empty"
-    disk_size_gb  = 10
+    disk_size_gb  = "${var.data_disk_size}"
   }
 
   os_profile {

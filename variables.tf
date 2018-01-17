@@ -28,6 +28,11 @@ variable "managed_disk_type" {
   description = "Type of managed disk for the VMs that will be part of this compute group. Allowable values are 'Standard_LRS' or 'Premium_LRS'."
 }
 
+variable "data_disk_size" {
+  description = "Specify the size in GB of the data disk"
+  default     = "10"
+}
+
 variable "admin_username" {
   description = "The admin username of the VMSS that will be deployed"
   default     = "azureuser"
@@ -103,3 +108,4 @@ variable "tags" {
 variable "cloudconfig_file" {
   description = "The location of the cloud init configuration file."
 }
+
