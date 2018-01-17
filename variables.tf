@@ -108,4 +108,3 @@ variable "tags" {
 variable "cloudconfig_file" {
   description = "The location of the cloud init configuration file."
 }
-
