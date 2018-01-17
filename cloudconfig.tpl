@@ -1,9 +1,4 @@
 #cloud-config
-packages:
- - httpd
- - samba-client
- - samba-common
- - cifs-utils
 package_upgrade: true
 runcmd:
- - echo "hello world" > /tmp/${tempfile}
+ - echo "Created by Azure terraform-vmss-cloudinit module." | sudo dd of=/tmp/terraformtest &> /dev/null
