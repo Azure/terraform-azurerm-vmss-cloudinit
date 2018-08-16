@@ -1,6 +1,6 @@
 # Deploys a group of Cloud-Init enabled Virtual Machines in a Scale Set
 
-[![Build Status](https://travis-ci.org/Azure/terraform-vmss-cloudinit.svg?branch=master)](https://travis-ci.org/Azure/terraform-vmss-cloudinit)
+[![Build Status](https://travis-ci.org/Azure/terraform-azurerm-vmss-cloudinit.svg?branch=master)](https://travis-ci.org/Azure/terraform-azurerm-vmss-cloudinit)
 
 This Terraform module deploys a Virtual Machines Scale Set in Azure, initializes the VMs using Cloud-int for [cloud-init-enabled virtual machine images](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init), and returns the id of the VM scale set deployed.  
 
