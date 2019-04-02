@@ -18,7 +18,8 @@ resource "azurerm_resource_group" "vmss" {
 }
 
 data "template_file" "cloudconfig" {
-  template = "${file("${var.cloudconfig_file}")}"
+  template = "${file(var.cloudconfig_template_file)}"
+  vars     = "${var.cloudconfig_template_vars}"
 }
 
 data "template_cloudinit_config" "config" {
