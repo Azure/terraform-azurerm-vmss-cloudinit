@@ -18,7 +18,8 @@ resource "azurerm_resource_group" "vmss" {
 }
 
 data "template_file" "cloudconfig" {
-  template = "${file("${var.cloudconfig_file}")}"
+  template = "${file(var.cloudconfig_template_file)}"
+  vars     = "${var.cloudconfig_template_vars}"
 }
 
 data "template_cloudinit_config" "config" {
@@ -90,6 +91,7 @@ resource "azurerm_virtual_machine_scale_set" "vm-linux" {
     ip_configuration {
       name                                   = "IPConfiguration"
       subnet_id                              = "${var.vnet_subnet_id}"
+      primary                                = true
       load_balancer_backend_address_pool_ids = ["${var.load_balancer_backend_address_pool_ids}"]
     }
   }
