@@ -105,6 +105,11 @@ variable "tags" {
   }
 }
 
-variable "cloudconfig_file" {
+variable "cloudconfig_template_file" {
   description = "The location of the cloud init configuration file."
+}
+
+variable "cloudconfig_template_vars" {
+  type        = "map"
+  description = "A map of vars to use in the cloud config template file"
 }
